@@ -112,7 +112,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_ItemStyles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/ItemStyles */ "./components/styles/ItemStyles.js");
 /* harmony import */ var _styles_PriceTag__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/PriceTag */ "./components/styles/PriceTag.js");
 /* harmony import */ var _lib_formatMoney__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../lib/formatMoney */ "./lib/formatMoney.js");
-var _jsxFileName = "C:\\Users\\Josh\\Desktop\\projects\\sick-fits\\frontend\\components\\Item.js";
+var _jsxFileName = "C:\\Users\\Josh.Johnson\\Desktop\\projects\\Advanced-React-Local\\sick-fits\\frontend\\components\\Item.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -160,17 +160,15 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_ItemStyles__WEBPACK_IMPORTED_MODULE_4__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 18
+          lineNumber: 17
         },
         __self: this
       }, item.image && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: item.image,
-        alt: {
-          item: item
-        }.title,
+        alt: item.title,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 19
+          lineNumber: 18
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_Title__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -194,26 +192,26 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25
+          lineNumber: 27
         },
         __self: this
       }, item.title))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_PriceTag__WEBPACK_IMPORTED_MODULE_5__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 28
+          lineNumber: 30
         },
         __self: this
       }, Object(_lib_formatMoney__WEBPACK_IMPORTED_MODULE_6__["default"])(item.price)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 31
         },
         __self: this
       }, item.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "buttonList",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 33
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -225,28 +223,16 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 34
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 40
         },
         __self: this
-      }, "Edit")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 36
-        },
-        __self: this
-      }, "Add To Cart"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 37
-        },
-        __self: this
-      }, "Delete")));
+      }, "Edit \u270F\uFE0F"))));
     }
   }]);
 
@@ -280,7 +266,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _Item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Item */ "./components/Item.js");
-var _jsxFileName = "C:\\Users\\Josh\\Desktop\\projects\\sick-fits\\frontend\\components\\Items.js";
+var _jsxFileName = "C:\\Users\\Josh.Johnson\\Desktop\\projects\\Advanced-React-Local\\sick-fits\\frontend\\components\\Items.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -516,7 +502,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Items__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Items */ "./components/Items.js");
-var _jsxFileName = "C:\\Users\\Josh\\Desktop\\projects\\sick-fits\\frontend\\pages\\index.js";
+var _jsxFileName = "C:\\Users\\Josh.Johnson\\Desktop\\projects\\Advanced-React-Local\\sick-fits\\frontend\\pages\\index.js";
 
 
 

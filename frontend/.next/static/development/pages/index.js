@@ -19,7 +19,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_ItemStyles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/ItemStyles */ "./components/styles/ItemStyles.js");
 /* harmony import */ var _styles_PriceTag__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/PriceTag */ "./components/styles/PriceTag.js");
 /* harmony import */ var _lib_formatMoney__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../lib/formatMoney */ "./lib/formatMoney.js");
-var _jsxFileName = "C:\\Users\\Josh\\Desktop\\projects\\sick-fits\\frontend\\components\\Item.js";
+var _jsxFileName = "C:\\Users\\Josh.Johnson\\Desktop\\projects\\Advanced-React-Local\\sick-fits\\frontend\\components\\Item.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -67,17 +67,15 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_ItemStyles__WEBPACK_IMPORTED_MODULE_4__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 18
+          lineNumber: 17
         },
         __self: this
       }, item.image && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: item.image,
-        alt: {
-          item: item
-        }.title,
+        alt: item.title,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 19
+          lineNumber: 18
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_Title__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -101,26 +99,26 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25
+          lineNumber: 27
         },
         __self: this
       }, item.title))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_PriceTag__WEBPACK_IMPORTED_MODULE_5__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 28
+          lineNumber: 30
         },
         __self: this
       }, Object(_lib_formatMoney__WEBPACK_IMPORTED_MODULE_6__["default"])(item.price)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 31
         },
         __self: this
       }, item.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "buttonList",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 33
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -132,28 +130,16 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 34
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 40
         },
         __self: this
-      }, "Edit")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 36
-        },
-        __self: this
-      }, "Add To Cart"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 37
-        },
-        __self: this
-      }, "Delete")));
+      }, "Edit \u270F\uFE0F"))));
     }
   }]);
 
@@ -186,7 +172,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _Item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Item */ "./components/Item.js");
-var _jsxFileName = "C:\\Users\\Josh\\Desktop\\projects\\sick-fits\\frontend\\components\\Items.js";
+var _jsxFileName = "C:\\Users\\Josh.Johnson\\Desktop\\projects\\Advanced-React-Local\\sick-fits\\frontend\\components\\Items.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -10982,7 +10968,7 @@ module.exports = gql;
   !*** ./node_modules/graphql/error/GraphQLError.mjs ***!
   \*****************************************************/
 /*! exports provided: GraphQLError */
-/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -11133,7 +11119,7 @@ GraphQLError.prototype = Object.create(Error.prototype, {
   !*** ./node_modules/graphql/error/formatError.mjs ***!
   \****************************************************/
 /*! exports provided: formatError */
-/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -11178,7 +11164,7 @@ function formatError(error) {
   !*** ./node_modules/graphql/error/index.mjs ***!
   \**********************************************/
 /*! exports provided: GraphQLError, syntaxError, locatedError, printError, formatError */
-/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -11218,7 +11204,7 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/graphql/error/locatedError.mjs ***!
   \*****************************************************/
 /*! exports provided: locatedError */
-/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -11256,7 +11242,7 @@ function locatedError(originalError, nodes, path) {
   !*** ./node_modules/graphql/error/printError.mjs ***!
   \***************************************************/
 /*! exports provided: printError */
-/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -11407,7 +11393,7 @@ function lpad(len, str) {
   !*** ./node_modules/graphql/error/syntaxError.mjs ***!
   \****************************************************/
 /*! exports provided: syntaxError */
-/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -11438,7 +11424,7 @@ function syntaxError(source, position, description) {
   !*** ./node_modules/graphql/jsutils/defineToStringTag.mjs ***!
   \************************************************************/
 /*! exports provided: default */
-/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -11482,7 +11468,7 @@ function applyToStringTag(classObject) {
   !*** ./node_modules/graphql/jsutils/inspect.mjs ***!
   \**************************************************/
 /*! exports provided: default */
-/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -11537,7 +11523,7 @@ function inspect(value) {
   !*** ./node_modules/graphql/jsutils/invariant.mjs ***!
   \****************************************************/
 /*! exports provided: default */
-/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -11564,7 +11550,7 @@ function invariant(condition, message) {
   !*** ./node_modules/graphql/language/blockStringValue.mjs ***!
   \************************************************************/
 /*! exports provided: default */
-/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -11643,7 +11629,7 @@ function isBlank(str) {
   !*** ./node_modules/graphql/language/directiveLocation.mjs ***!
   \*************************************************************/
 /*! exports provided: DirectiveLocation */
-/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -11694,7 +11680,7 @@ var DirectiveLocation = Object.freeze({
   !*** ./node_modules/graphql/language/kinds.mjs ***!
   \*************************************************/
 /*! exports provided: Kind */
-/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -11778,7 +11764,7 @@ var Kind = Object.freeze({
   !*** ./node_modules/graphql/language/lexer.mjs ***!
   \*************************************************/
 /*! exports provided: createLexer, TokenKind, getTokenDesc */
-/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -12427,7 +12413,7 @@ function readName(source, start, line, col, prev) {
   !*** ./node_modules/graphql/language/location.mjs ***!
   \****************************************************/
 /*! exports provided: getLocation */
-/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -12473,7 +12459,7 @@ function getLocation(source, position) {
   !*** ./node_modules/graphql/language/parser.mjs ***!
   \**************************************************/
 /*! exports provided: parse, parseValue, parseType, parseConstValue, parseTypeReference, parseNamedType */
-/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -14002,7 +13988,7 @@ function many(lexer, openKind, parseFn, closeKind) {
   !*** ./node_modules/graphql/language/printer.mjs ***!
   \***************************************************/
 /*! exports provided: print */
-/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -14326,7 +14312,7 @@ function printBlockString(value, isDescription) {
   !*** ./node_modules/graphql/language/source.mjs ***!
   \**************************************************/
 /*! exports provided: Source */
-/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -14380,7 +14366,7 @@ Object(_jsutils_defineToStringTag__WEBPACK_IMPORTED_MODULE_1__["default"])(Sourc
   !*** ./node_modules/graphql/language/visitor.mjs ***!
   \***************************************************/
 /*! exports provided: QueryDocumentKeys, BREAK, visit, visitInParallel, visitWithTypeInfo, getVisitFn */
-/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -19250,12 +19236,12 @@ module.exports = __webpack_require__(/*! ./dist/lib/link */ "./node_modules/next
 
 /***/ "./node_modules/object-assign/index.js":
 /*!***************************************************************************************************!*\
-  !*** delegated ./node_modules/object-assign/index.js from dll-reference dll_c47e886f146f98ef8f7b ***!
+  !*** delegated ./node_modules/object-assign/index.js from dll-reference dll_5d62d38be3592dca3a42 ***!
   \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_c47e886f146f98ef8f7b */ "dll-reference dll_c47e886f146f98ef8f7b"))("./node_modules/object-assign/index.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_5d62d38be3592dca3a42 */ "dll-reference dll_5d62d38be3592dca3a42"))("./node_modules/object-assign/index.js");
 
 /***/ }),
 
@@ -19898,12 +19884,12 @@ module.exports = exports['default'];
 
 /***/ "./node_modules/prop-types/checkPropTypes.js":
 /*!*********************************************************************************************************!*\
-  !*** delegated ./node_modules/prop-types/checkPropTypes.js from dll-reference dll_c47e886f146f98ef8f7b ***!
+  !*** delegated ./node_modules/prop-types/checkPropTypes.js from dll-reference dll_5d62d38be3592dca3a42 ***!
   \*********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_c47e886f146f98ef8f7b */ "dll-reference dll_c47e886f146f98ef8f7b"))("./node_modules/prop-types/checkPropTypes.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_5d62d38be3592dca3a42 */ "dll-reference dll_5d62d38be3592dca3a42"))("./node_modules/prop-types/checkPropTypes.js");
 
 /***/ }),
 
@@ -20511,12 +20497,12 @@ if (true) {
 
 /***/ "./node_modules/prop-types/lib/ReactPropTypesSecret.js":
 /*!*******************************************************************************************************************!*\
-  !*** delegated ./node_modules/prop-types/lib/ReactPropTypesSecret.js from dll-reference dll_c47e886f146f98ef8f7b ***!
+  !*** delegated ./node_modules/prop-types/lib/ReactPropTypesSecret.js from dll-reference dll_5d62d38be3592dca3a42 ***!
   \*******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_c47e886f146f98ef8f7b */ "dll-reference dll_c47e886f146f98ef8f7b"))("./node_modules/prop-types/lib/ReactPropTypesSecret.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_5d62d38be3592dca3a42 */ "dll-reference dll_5d62d38be3592dca3a42"))("./node_modules/prop-types/lib/ReactPropTypesSecret.js");
 
 /***/ }),
 
@@ -22368,12 +22354,12 @@ if (false) {} else {
 
 /***/ "./node_modules/react/index.js":
 /*!*******************************************************************************************!*\
-  !*** delegated ./node_modules/react/index.js from dll-reference dll_c47e886f146f98ef8f7b ***!
+  !*** delegated ./node_modules/react/index.js from dll-reference dll_5d62d38be3592dca3a42 ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_c47e886f146f98ef8f7b */ "dll-reference dll_c47e886f146f98ef8f7b"))("./node_modules/react/index.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_5d62d38be3592dca3a42 */ "dll-reference dll_5d62d38be3592dca3a42"))("./node_modules/react/index.js");
 
 /***/ }),
 
@@ -28918,7 +28904,7 @@ __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Items__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Items */ "./components/Items.js");
-var _jsxFileName = "C:\\Users\\Josh\\Desktop\\projects\\sick-fits\\frontend\\pages\\index.js";
+var _jsxFileName = "C:\\Users\\Josh.Johnson\\Desktop\\projects\\Advanced-React-Local\\sick-fits\\frontend\\pages\\index.js";
 
 
 
@@ -28975,14 +28961,14 @@ return { page: module.exports.default }});
 
 /***/ }),
 
-/***/ "dll-reference dll_c47e886f146f98ef8f7b":
+/***/ "dll-reference dll_5d62d38be3592dca3a42":
 /*!*******************************************!*\
-  !*** external "dll_c47e886f146f98ef8f7b" ***!
+  !*** external "dll_5d62d38be3592dca3a42" ***!
   \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = dll_c47e886f146f98ef8f7b;
+module.exports = dll_5d62d38be3592dca3a42;
 
 /***/ })
 
