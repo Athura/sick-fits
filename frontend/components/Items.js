@@ -22,9 +22,10 @@ const Center = styled.div`
 `;
 
 const ItemsList = styled.div`
+position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 60px;
+  grid-gap: 45px;
   max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
 `;

@@ -21,11 +21,13 @@ const SINGLE_ITEM_QUERY = gql`
 
 const UPDATE_ITEM_MUTATION = gql`
     mutation UPDATE_ITEM_MUTATION(
-        $title: String!
-        $description: String!
-        $price: Int!
+        $id: ID!
+        $title: String
+        $description: String
+        $price: Int
     ) {
-        createItem(
+        updateItem(
+            id: $id
             title: $title
             description: $description
             price: $price
@@ -47,10 +49,17 @@ class UpdateItem extends Component {
         this.setState({ [name]: val })
     }
 
-    updateItem = (e, updateItemMutation) => {
+    updateItem = async (e, updateItemMutation) => {
         e.preventDefault();
         console.log('Updating Item!');
-        
+        const res = await updateItemMutation({
+            variables: {
+                id: this.props.id,
+                ...this.state,
+            }
+        });
+        console.log('updated!');
+
     }
 
   render() {
@@ -66,7 +75,7 @@ class UpdateItem extends Component {
                
         <Mutation mutation={UPDATE_ITEM_MUTATION} variables={this.state}> 
             {(updateItem, {loading, error}) => (
-                <Form onSubmit ={ e => this.updatItem(e, updateItem) }>
+                <Form onSubmit ={ e => this.updateItem(e, updateItem) }>
                     <Error error={error} />
                     <fieldset disabled={loading} aria-busy={loading}>
 
@@ -85,7 +94,7 @@ class UpdateItem extends Component {
                           <textarea id="description" name="description" placeholder="Enter a Description" required value={data.item.description} onChange={this.handleChange} />
                         </label>
           
-                        <button type="submit" >Save Changes</button>
+                        <button type="submit" >Sav{loading ? 'ing' : 'e'} Changes</button>
                     </fieldset>
                 </Form>
             )}
