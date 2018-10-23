@@ -15,7 +15,8 @@ const Mutations = {
     },
     updateItem(parent, args, ctx, info) {
         // first take a copy of the updates
-        const update = { ...args };
+        const update = { ...args
+        };
         // Remove the ID from updates
         delete updates.id;
         // Run the update method
@@ -28,14 +29,20 @@ const Mutations = {
         }, info)
     },
     async deleteItem(parent, args, ctx, info) {
-        const where = { id: args.id };
+        const where = {
+            id: args.id
+        };
         // 1. find the item
-        const item = await ctx.db.query.item({ where }, `{ id title}`);
+        const item = await ctx.db.query.item({
+            where
+        }, `{ id title}`);
         // 2. Check if they own that item, or have the permissions
         // TODO
         // 3. Delete it!
-        return ctx.db.mutation.deleteItem({ where }, info);
-      },
+        return ctx.db.mutation.deleteItem({
+            where
+        }, info);
+    },
     async signup(parent, args, ctx, info) {
         args.email = args.email.toLowerCase();
         // Hash their password
@@ -45,11 +52,15 @@ const Mutations = {
             data: {
                 ...args,
                 password,
-                permissions: { set: ['USER'] }
+                permissions: {
+                    set: ['USER']
+                }
             }
         }, info);
         // Create a JWT token for new user so they don't have to login
-        const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET);
+        const token = jwt.sign({
+            userId: user.id
+        }, process.env.APP_SECRET);
         // We set the JWT as a cookie in the response
         ctx.response.cookie('token', token, {
             httpOnly: true,
@@ -58,14 +69,49 @@ const Mutations = {
         // Return the user to browser
         return user;
     },
+    async signin(parent, {
+        email,
+        password
+    }, ctx, info) {
+        // Check if there is a user with the provided email
+        const user = await ctx.db.query.user({
+            where: {
+                email
+            }
+        });
+        if (!user) {
+            throw new Error(`No such user found for email ${email}`);
+        }
+        // Check if their password is correct
+        const valid = await bcrypt.compare(password, user.password);
+        if (!valid) {
+            throw new Error('Invalid password!');
+        }
+        // Generate the JWT token
+        const token = jwt.sign({
+            userId: user.id
+        }, process.env.APP_SECRET);
+        // Set the cookie with the token
+        ctx.response.cookie('token', token, {
+            httpOnly: true,
+            maxAge: 1000 * 60 * 60 * 24 * 365
+        })
+        // Return the user
+        return user;
+    },
+    signout(parent, args, ctx, info) {
+        ctx.response.clearCookie('token');
+        return {
+            message: 'Goodbye!'
+        };
+    }
+};
 
-    };
-
-    // createDog(parent, args, ctx, info) {
-    //     global.dogs = global.dogs || [];
-    //     const newDog = { name: args.name };
-    //     global.dogs.push(newDog);
-    //     return newDog;
-    // }
+// createDog(parent, args, ctx, info) {
+//     global.dogs = global.dogs || [];
+//     const newDog = { name: args.name };
+//     global.dogs.push(newDog);
+//     return newDog;
+// }
 
 module.exports = Mutations;
