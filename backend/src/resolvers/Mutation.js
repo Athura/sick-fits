@@ -1,5 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { randomBytes } = require('crypto');
+const { promisify } = require('util');
 
 const Mutations = {
     // ctx = context, we get this from createServer's context object
@@ -104,6 +106,47 @@ const Mutations = {
         return {
             message: 'Goodbye!'
         };
+    },
+    async requestReset(parent, args, ctx, info) {
+        // Check if this is a real user
+        const user = await ctx.db.query.user({ where: { email: args.email }});
+        if(!user) {
+            throw new Error(`No such user found for email ${args.email}`);
+        }
+        // Set a reset token and expiry on that user
+        const randomBytesPromisified = promisify(randomBytes);
+        const resetToken = (await randomBytesPromisified(20)).toString('hex');
+        const resetTokenExpiry = Date.now() + 3600000; // 1 hour from now
+        const res = await ctx.db.mutation.updateUser({
+            where: { email: args.email },
+            data: { resetToken, resetTokenExpiry}
+        })
+        // Email them that reset token
+    },
+    async resetPassword(parent, args, ctx, info) {
+        // Check if the passwords match
+        if(args.password !== args.confirmPassword) {
+            throw new Error('Yo passwords don\'t match!');
+        }
+        // Check if its a legit reset token
+        // Check if its expired
+        const [user] = ctx.db.query.users({
+            where: {
+                resetToken: args.resetToken,
+                resetTokenExpiry_gte: Date.now() - 3600000;
+            }
+        });
+        if(!user) {
+            throw new Error('This token is either invalid or expired!');
+        }
+        // Hash their new password
+        const password = await bcrypt.hash(args.password, 10);
+        // Save the new password to the user and remove old resetToken and fields
+        const update
+        // Generate JWT
+        // Set the JWT cookie
+        // Return the new user :D!
+        // Celebrate with a beer.
     }
 };
 
