@@ -3,12 +3,22 @@ const jwt = require('jsonwebtoken');
 const { randomBytes } = require('crypto');
 const { promisify } = require('util');
 
+const { transport, makeANiceEmail } = require('../mail');
+
 const Mutations = {
     // ctx = context, we get this from createServer's context object
     async createItem(parent, args, ctx, info) {
-        // TODO: Check if user is logged in
+        if(!ctx.request.userId) {
+            throw new Error('You must be logged in to do that!');
+        }
         const item = await ctx.db.mutation.createItem({
             data: {
+                // This is how to create a relationship between types
+                user: {
+                    connect: {
+                        id: ctx.request.userId
+                    }
+                },
                 ...args
             }
         }, info);
@@ -120,8 +130,18 @@ const Mutations = {
         const res = await ctx.db.mutation.updateUser({
             where: { email: args.email },
             data: { resetToken, resetTokenExpiry}
-        })
+        });
+        
         // Email them that reset token
+        const mailRes = await transport.sendMail({
+            from: 'joshualjohnson33@gmail.com',
+            to: user.email,
+            subject: 'Your Password Reset Token',
+            html: makeANiceEmail(`Your password reset token is here! \n\n <a href="${process.env.FRONTEND_URL}/reset?resetToken=${resetToken}">Click Here to Reset</a>`)
+        });
+
+        // Return the message
+        return { message: 'Thanks!' };
     },
     async resetPassword(parent, args, ctx, info) {
         // Check if the passwords match
@@ -130,10 +150,10 @@ const Mutations = {
         }
         // Check if its a legit reset token
         // Check if its expired
-        const [user] = ctx.db.query.users({
+        const [user] = await ctx.db.query.users({
             where: {
                 resetToken: args.resetToken,
-                resetTokenExpiry_gte: Date.now() - 3600000;
+                resetTokenExpiry_gte: Date.now() - 3600000
             }
         });
         if(!user) {
@@ -142,10 +162,24 @@ const Mutations = {
         // Hash their new password
         const password = await bcrypt.hash(args.password, 10);
         // Save the new password to the user and remove old resetToken and fields
-        const update
+        const updatedUser = await ctx.db.mutation.updateUser({
+            where: { email: user.email },
+            data: {
+                password,
+                resetToken: null,
+                resetTokenExpiry: null
+            }
+        })
         // Generate JWT
+        const token = jwt.sign({ userId: updatedUser.id }, process.env.APP_SECRET);
+
         // Set the JWT cookie
+        ctx.response.cookie('token', token, {
+            httpOnly: true,
+            maxAge: 1000 * 60 * 60 * 24 * 365
+        })
         // Return the new user :D!
+        return updatedUser;
         // Celebrate with a beer.
     }
 };
