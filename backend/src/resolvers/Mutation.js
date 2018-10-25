@@ -4,6 +4,7 @@ const { randomBytes } = require('crypto');
 const { promisify } = require('util');
 
 const { transport, makeANiceEmail } = require('../mail');
+const { hasPermission } = require('../utils')
 
 const Mutations = {
     // ctx = context, we get this from createServer's context object
@@ -181,6 +182,31 @@ const Mutations = {
         // Return the new user :D!
         return updatedUser;
         // Celebrate with a beer.
+    },
+    async updatePermissions(parent, args, ctx, info) {
+        // Check if anyone is logged in
+        if(!ctx.request.userId) {
+            throw new Error('You must be logged in to do this!');
+        }
+        // Query the current user
+        const currentUser = await ctx.db.query.user({
+            where: {
+                id: ctx.request.userId,
+            },
+        }, info);
+        // Check if they have permissions to do this
+        hasPermission(currentUser, ['ADMIN', 'PERMISSIONUPDATE']);
+        // Update the permissions 
+        return ctx.db.mutation.updateUser({
+            data: {
+                permissions: {
+                    set: args.permissions
+                },
+            },
+            where: {
+                id: args.userId
+            }
+        }, info);
     }
 };
 
