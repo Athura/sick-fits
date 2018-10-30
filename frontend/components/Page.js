@@ -43,7 +43,7 @@ injectGlobal`
   body {
     padding: 0;
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 2rem;
     line-height: 2;
     font-family: 'radnika_next';
   }

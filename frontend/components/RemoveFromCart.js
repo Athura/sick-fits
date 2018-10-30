@@ -32,8 +32,8 @@ class RemoveFromCart extends React.Component {
     // first read the cache
     const data = cache.readQuery({ query: CURRENT_USER_QUERY });
     // remove the item from the cart
-    const cartItem = payload.data.removeFromCart.id;
-    data.me.cart = data.me.cart.filter(cartItem => cartItem.id !== cartItem.id);
+    const cartItemId = payload.data.removeFromCart.id;
+    data.me.cart = data.me.cart.filter(cartItem => cartItem.id !== cartItemId);
     // write it back to the cache
     cache.writeQuery({ query: CURRENT_USER_QUERY, data });
   }
