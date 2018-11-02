@@ -1502,11 +1502,12 @@ var Signout = function Signout(props) {
 /*!***********************************!*\
   !*** ./components/TakeMyMoney.js ***!
   \***********************************/
-/*! exports provided: default */
+/*! exports provided: default, CREATE_ORDER_MUTATION */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_ORDER_MUTATION", function() { return CREATE_ORDER_MUTATION; });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "@babel/runtime/regenerator");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
@@ -1554,7 +1555,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    mutation createOrder($token: String!) {\n        createOrder(token: $token) {\n            id\n            charge\n            total\n            items {\n                id\n                title\n            }\n        }\n    }\n"]);
+  var data = _taggedTemplateLiteral(["\n  mutation createOrder($token: String!) {\n    createOrder(token: $token) {\n      id\n      charge\n      total\n      items {\n        id\n        title\n      }\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -1612,17 +1613,27 @@ function (_React$Component) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                // manually call the mutation once we have a stripe token
-                order = createOrder({
+                nprogress__WEBPACK_IMPORTED_MODULE_5___default.a.start(); // manually call the mutation once we have the stripe token
+
+                _context.next = 3;
+                return createOrder({
                   variables: {
                     token: res.id
                   }
                 }).catch(function (err) {
                   alert(err.message);
                 });
-                console.log(order);
 
-              case 2:
+              case 3:
+                order = _context.sent;
+                next_router__WEBPACK_IMPORTED_MODULE_4___default.a.push({
+                  pathname: '/order',
+                  query: {
+                    id: order.data.createOrder.id
+                  }
+                });
+
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -1646,11 +1657,13 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_10__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
+          lineNumber: 48
         },
         __self: this
       }, function (_ref2) {
-        var me = _ref2.data.me;
+        var me = _ref2.data.me,
+            loading = _ref2.loading;
+        if (loading) return null;
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_3__["Mutation"], {
           mutation: CREATE_ORDER_MUTATION,
           refetchQueries: [{
@@ -1658,24 +1671,24 @@ function (_React$Component) {
           }],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 46
+            lineNumber: 52
           },
           __self: this
         }, function (createOrder) {
           return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_stripe_checkout__WEBPACK_IMPORTED_MODULE_2___default.a, {
             amount: Object(_lib_calcTotalPrice__WEBPACK_IMPORTED_MODULE_8__["default"])(me.cart),
             name: "Sick Fits",
-            description: "Order of ".concat(totalItems(me.cart), " items"),
+            description: "Order of ".concat(totalItems(me.cart), " items!"),
             image: me.cart.length && me.cart[0].item && me.cart[0].item.image,
             stripeKey: "pk_test_3ZzhKqjDNoS27719RWGPmxlK",
             currency: "USD",
             email: me.email,
             token: function token(res) {
-              return _this2.onToken(res);
+              return _this2.onToken(res, createOrder);
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 48
+              lineNumber: 57
             },
             __self: this
           }, _this2.props.children);
@@ -1688,6 +1701,7 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (TakeMyMoney);
+
 
 /***/ }),
 
