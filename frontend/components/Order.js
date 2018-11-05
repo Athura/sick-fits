@@ -47,7 +47,7 @@ class Order extends Component {
                     </Head>
                     <p>
                         <span>Order Id:</span>
-                            {this.props.id}!
+                        <span>{this.props.id}!</span>
                     </p>
                     <p>
                         <span>Charge:</span>
