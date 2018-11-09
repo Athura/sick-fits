@@ -1,5 +1,5 @@
-# source: https://us1.prisma.sh/joshualjohnson33-7b14cf/siccccc-fitterino/dev
-# timestamp: Fri Nov 02 2018 07:32:09 GMT-0400 (Eastern Daylight Time)
+# source: https://sick-fits-prod-c70edd714f.herokuapp.com/sick-fits-prod/prod
+# timestamp: Thu Nov 08 2018 07:44:49 GMT-0500 (Eastern Standard Time)
 
 type AggregateCartItem {
   count: Int!
